@@ -634,7 +634,7 @@
                 name: "University of Tennessee",
                 shortName: "Tennessee",
                 primaryColor: "#FF8200",
-                secondaryColor: "#FFFFFF",
+                secondaryColor: "#58595B",
                 mascot: "🐾",
                 cheer: "Go Vols"
             },
@@ -649,8 +649,8 @@
             missouri: {
                 name: "University of Missouri",
                 shortName: "Missouri",
-                primaryColor: "#F1B82D",
-                secondaryColor: "#000000",
+                primaryColor: "#000000",
+                secondaryColor: "#F1B82D",
                 mascot: "🐯",
                 cheer: "M-I-Z"
             },
@@ -674,7 +674,7 @@
                 name: "University of South Carolina",
                 shortName: "South Carolina",
                 primaryColor: "#73000A",
-                secondaryColor: "#000000",
+                secondaryColor: "#FFFFFF",
                 mascot: "🐓",
                 cheer: "Go Gamecocks"
             },
@@ -922,7 +922,10 @@
                 }
                 .header {
                     background: ${school.primaryColor};
-                    color: ${primaryContrast};
+                    color: white !important;
+                }
+                .header h1 {
+                    color: white !important;
                 }
                 .header .subtitle {
                     color: ${school.secondaryColor};
@@ -934,6 +937,9 @@
                 .tabs {
                     border-bottom-color: ${school.secondaryColor};
                 }
+                .tab {
+                    color: ${school.primaryColor};
+                }
                 .btn {
                     background: ${school.secondaryColor};
                     color: ${secondaryContrast};
@@ -943,7 +949,7 @@
                 }
                 .btn-secondary {
                     background: ${school.primaryColor};
-                    color: ${primaryContrast};
+                    color: white;
                 }
                 .btn-secondary:hover {
                     background: ${school.primaryColor}dd;
@@ -951,11 +957,17 @@
                 .expense-item {
                     border-left-color: ${school.secondaryColor};
                 }
+                .expense-details h3 {
+                    color: ${school.primaryColor} !important;
+                }
                 .expense-amount {
                     color: ${school.secondaryColor};
                 }
                 .settlement-box {
                     border-color: ${school.primaryColor};
+                }
+                .settlement-box h3, .settlement-box h4 {
+                    color: ${school.primaryColor} !important;
                 }
                 .settlement-item {
                     border-left-color: ${school.secondaryColor};
@@ -963,8 +975,15 @@
                 .settlement-item strong {
                     color: ${school.primaryColor};
                 }
+                .settlement-item span {
+                    color: ${school.secondaryColor};
+                }
                 .stat-card {
                     background: linear-gradient(135deg, ${school.primaryColor} 0%, ${school.primaryColor}cc 100%);
+                    color: white !important;
+                }
+                .stat-card h3 {
+                    color: white !important;
                 }
                 .stat-card .value {
                     color: ${school.secondaryColor};
@@ -976,7 +995,10 @@
                 .apartment-info {
                     border-left-color: ${school.secondaryColor};
                 }
-                h2, h3, h4, label, .tab {
+                .apartment-info strong {
+                    color: ${school.primaryColor};
+                }
+                h2, h3, h4, label {
                     color: ${school.primaryColor} !important;
                 }
                 input:focus, select:focus, textarea:focus {
