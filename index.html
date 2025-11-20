@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auburn Roommate Bills</title>
+    <title>Roommate Bills</title>
     <style>
         * {
             margin: 0;
@@ -95,6 +95,28 @@
 
         .form-group {
             margin-bottom: 20px;
+        }
+
+        /* Touch-friendly improvements */
+        button, .tab, .roommate-chip button {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Prevent text selection on buttons */
+        .btn, .tab, .delete-btn, .logout-btn {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Better scrolling on mobile */
+        .tabs {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
         }
 
         label {
@@ -336,12 +358,54 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            float: right;
-            margin-top: -10px;
+            margin-top: 15px;
         }
 
         .logout-btn:hover {
             background: #c82333;
+        }
+
+        .home-btn {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
+
+        .home-btn:hover {
+            background: #218838;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 769px) {
+            .header-buttons {
+                position: absolute;
+                top: 30px;
+                right: 30px;
+            }
+
+            .logout-btn, .home-btn {
+                margin-top: 0;
+            }
+
+            .home-btn {
+                margin-right: 10px;
+            }
+
+            .header {
+                position: relative;
+            }
         }
 
         .apartment-info {
@@ -359,21 +423,174 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
             .header h1 {
-                font-size: 1.8em;
+                font-size: 1.5em;
+                letter-spacing: 1px;
+            }
+
+            .header .subtitle {
+                font-size: 0.9em;
+            }
+
+            .header {
+                padding: 20px 15px;
+            }
+
+            .logout-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+                position: static;
+                float: none;
+                margin: 0;
+                display: block;
+                width: 100%;
+                max-width: 150px;
+            }
+
+            .home-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+                margin: 0;
+                width: 100%;
+                max-width: 150px;
+            }
+
+            .header-buttons {
+                margin-top: 15px;
             }
             
             .tabs {
+                flex-direction: row;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab {
+                min-width: 120px;
+                padding: 15px 10px;
+                font-size: 0.95em;
+                flex: 0 0 auto;
+            }
+            
+            .tab-content {
+                padding: 20px 15px;
+            }
+
+            .login-container {
+                padding: 25px 20px;
+                margin: 20px auto;
+            }
+
+            .login-container h2 {
+                font-size: 1.5em;
+            }
+
+            input, select, textarea {
+                font-size: 16px; /* Prevents iOS zoom on focus */
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+            .input-group {
                 flex-direction: column;
+            }
+
+            .input-group button {
+                width: 100%;
+                margin-top: 10px;
             }
             
             .expense-item {
                 flex-direction: column;
                 align-items: flex-start;
+                padding: 15px;
             }
             
             .expense-amount {
                 margin-top: 10px;
+                font-size: 1.3em;
+            }
+
+            .expense-details h3 {
+                font-size: 1.1em;
+            }
+
+            .delete-btn {
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            .settlement-box {
+                padding: 15px;
+            }
+
+            .settlement-item {
+                padding: 12px;
+                font-size: 1em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+
+            .month-selector {
+                flex-direction: column;
+            }
+
+            .month-selector select,
+            .month-selector button {
+                width: 100%;
+            }
+
+            .roommate-chip {
+                padding: 8px 15px;
+                font-size: 0.95em;
+            }
+
+            .apartment-info {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.2em;
+            }
+
+            .header .subtitle {
+                font-size: 0.8em;
+            }
+
+            .tab {
+                min-width: 100px;
+                padding: 12px 8px;
+                font-size: 0.85em;
+            }
+
+            .stat-card .value {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -454,9 +671,14 @@
     <!-- Main App -->
     <div class="container" id="mainApp" style="display: none;">
         <div class="header">
-            <h1>🎓 Roommate Bills 🎓</h1>
-            <div class="subtitle">College Roommate Expense Tracker</div>
-            <button class="logout-btn" onclick="logout()">Logout</button>
+            <div>
+                <h1>🎓 Roommate Bills 🎓</h1>
+                <div class="subtitle">College Roommate Expense Tracker</div>
+            </div>
+            <div class="header-buttons">
+                <button class="home-btn" onclick="goHome()">Home</button>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
         </div>
 
         <div class="main-content">
@@ -518,7 +740,7 @@
 
                 <div class="form-group">
                     <label>Month</label>
-                    <select id="expenseMonth">
+                    <select id="expenseMonth" style="width: 100%;">
                         <option value="01">January</option>
                         <option value="02">February</option>
                         <option value="03">March</option>
@@ -536,7 +758,7 @@
 
                 <div class="form-group">
                     <label>Year</label>
-                    <select id="expenseYear"></select>
+                    <select id="expenseYear" style="width: 100%;"></select>
                 </div>
 
                 <button class="btn" onclick="addExpense()">Add Expense</button>
@@ -1073,6 +1295,13 @@
             const styleEl = document.getElementById('dynamic-theme');
             if (styleEl) styleEl.remove();
             
+            // Show login screen
+            document.getElementById('mainApp').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'block';
+        }
+
+        // Go to home/login screen (without clearing session)
+        function goHome() {
             // Show login screen
             document.getElementById('mainApp').style.display = 'none';
             document.getElementById('loginScreen').style.display = 'block';
