@@ -303,6 +303,61 @@
             flex-shrink: 0;
         }
 
+        .login-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .login-container h2 {
+            color: #0C2340;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-container p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            float: right;
+            margin-top: -10px;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+        }
+
+        .apartment-info {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-left: 5px solid #E87722;
+        }
+
+        .apartment-info strong {
+            color: #0C2340;
+            font-size: 1.2em;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 1.8em;
@@ -324,13 +379,48 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="container" style="display: none;">
         <div class="header">
             <h1>🦅 War Eagle Bills 🦅</h1>
             <div class="subtitle">Auburn Roommate Expense Tracker</div>
         </div>
+        <div class="login-container">
+            <h2>Apartment Login</h2>
+            <p>Enter your apartment name and password to access your shared expenses</p>
+            <div class="login-form">
+                <div class="form-group">
+                    <label>Apartment Name</label>
+                    <input type="text" id="loginApartmentName" placeholder="e.g., Eagle's Nest, 123 Main St">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter apartment password">
+                </div>
+                <button class="btn" onclick="login()">Access Apartment</button>
+            </div>
+            <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 5px solid #E87722;">
+                <h3 style="color: #0C2340; margin-bottom: 10px;">🔒 First Time Setup</h3>
+                <p style="color: #666; margin: 0;">
+                    Choose any apartment name and password. This will create your apartment's data space. 
+                    Share these credentials with your roommates so everyone can access the same data.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="container" id="mainApp" style="display: none;">
+        <div class="header">
+            <h1>🦅 War Eagle Bills 🦅</h1>
+            <div class="subtitle">Auburn Roommate Expense Tracker</div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
 
         <div class="main-content">
+            <div class="apartment-info">
+                <strong id="currentApartmentName"></strong>
+            </div>
             <div class="tabs">
                 <button class="tab active" onclick="switchTab('roommates')">Roommates</button>
                 <button class="tab" onclick="switchTab('add')">Add Expense</button>
@@ -455,15 +545,98 @@
     </div>
 
     <script>
+        // Current apartment session
+        let currentApartment = null;
+
+        // Get apartment key for localStorage
+        function getApartmentKey(dataType) {
+            if (!currentApartment) return null;
+            return `auburn_${currentApartment.id}_${dataType}`;
+        }
+
+        // Simple hash function for apartment ID
+        function hashApartmentId(apartmentName, password) {
+            const combined = apartmentName.toLowerCase().trim() + '|' + password;
+            let hash = 0;
+            for (let i = 0; i < combined.length; i++) {
+                const char = combined.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return 'apt_' + Math.abs(hash).toString(36);
+        }
+
+        // Login function
+        function login() {
+            const apartmentName = document.getElementById('loginApartmentName').value.trim();
+            const password = document.getElementById('loginPassword').value;
+
+            if (!apartmentName || !password) {
+                alert('Please enter both apartment name and password');
+                return;
+            }
+
+            // Create apartment session
+            currentApartment = {
+                name: apartmentName,
+                id: hashApartmentId(apartmentName, password)
+            };
+
+            // Store session
+            sessionStorage.setItem('currentApartment', JSON.stringify(currentApartment));
+
+            // Show main app
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('mainApp').style.display = 'block';
+            document.getElementById('currentApartmentName').textContent = apartmentName;
+
+            // Initialize app
+            initializeApp();
+        }
+
+        // Logout function
+        function logout() {
+            if (!confirm('Are you sure you want to logout?')) return;
+            
+            sessionStorage.removeItem('currentApartment');
+            currentApartment = null;
+            
+            // Clear form
+            document.getElementById('loginApartmentName').value = '';
+            document.getElementById('loginPassword').value = '';
+            
+            // Show login screen
+            document.getElementById('mainApp').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'block';
+        }
+
+        // Check if already logged in
+        function checkSession() {
+            const session = sessionStorage.getItem('currentApartment');
+            if (session) {
+                currentApartment = JSON.parse(session);
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('mainApp').style.display = 'block';
+                document.getElementById('currentApartmentName').textContent = currentApartment.name;
+                initializeApp();
+            } else {
+                document.getElementById('loginScreen').style.display = 'block';
+            }
+        }
+
         // Get roommates from localStorage
         function getRoommates() {
-            const roommates = localStorage.getItem('auburnRoommates');
+            const key = getApartmentKey('roommates');
+            if (!key) return [];
+            const roommates = localStorage.getItem(key);
             return roommates ? JSON.parse(roommates) : [];
         }
 
         // Save roommates to localStorage
         function saveRoommates(roommates) {
-            localStorage.setItem('auburnRoommates', JSON.stringify(roommates));
+            const key = getApartmentKey('roommates');
+            if (!key) return;
+            localStorage.setItem(key, JSON.stringify(roommates));
         }
 
         // Add new roommate
@@ -551,13 +724,17 @@
 
         // Get expenses from localStorage
         function getExpenses() {
-            const expenses = localStorage.getItem('auburnRoommateExpenses');
+            const key = getApartmentKey('expenses');
+            if (!key) return [];
+            const expenses = localStorage.getItem(key);
             return expenses ? JSON.parse(expenses) : [];
         }
 
         // Save expenses to localStorage
         function saveExpenses(expenses) {
-            localStorage.setItem('auburnRoommateExpenses', JSON.stringify(expenses));
+            const key = getApartmentKey('expenses');
+            if (!key) return;
+            localStorage.setItem(key, JSON.stringify(expenses));
         }
 
         // Add new expense
@@ -859,13 +1036,18 @@
             }
         }
 
-        // Initialize on page load
-        window.onload = function() {
+        // Initialize the app after login
+        function initializeApp() {
             initializeYears();
             initializeCurrentMonth();
             loadRoommates();
             updateRoommateDropdown();
             loadCurrentExpenses();
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            checkSession();
         };
     </script>
 </body>
