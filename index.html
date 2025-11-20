@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0C2340 0%, #E87722 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -24,7 +24,7 @@
         }
 
         .header {
-            background: #0C2340;
+            background: #2c3e50;
             color: white;
             padding: 30px;
             border-radius: 15px 15px 0 0;
@@ -40,7 +40,7 @@
         }
 
         .header .subtitle {
-            color: #E87722;
+            color: #3498db;
             font-size: 1.2em;
             font-weight: bold;
         }
@@ -55,7 +55,7 @@
         .tabs {
             display: flex;
             background: #f5f5f5;
-            border-bottom: 3px solid #E87722;
+            border-bottom: 3px solid #3498db;
             flex-wrap: wrap;
         }
 
@@ -66,7 +66,7 @@
             text-align: center;
             cursor: pointer;
             font-weight: bold;
-            color: #0C2340;
+            color: #2c3e50;
             border: none;
             background: #f5f5f5;
             font-size: 1.1em;
@@ -79,8 +79,8 @@
 
         .tab.active {
             background: white;
-            color: #E87722;
-            border-bottom: 3px solid #E87722;
+            color: #3498db;
+            border-bottom: 3px solid #3498db;
             margin-bottom: -3px;
         }
 
@@ -100,7 +100,7 @@
         label {
             display: block;
             margin-bottom: 8px;
-            color: #0C2340;
+            color: #2c3e50;
             font-weight: bold;
         }
 
@@ -115,11 +115,11 @@
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #E87722;
+            border-color: #3498db;
         }
 
         .btn {
-            background: #E87722;
+            background: #3498db;
             color: white;
             padding: 15px 30px;
             border: none;
@@ -132,17 +132,17 @@
         }
 
         .btn:hover {
-            background: #d66a1a;
+            background: #2980b9;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(232, 119, 34, 0.3);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
         }
 
         .btn-secondary {
-            background: #0C2340;
+            background: #2c3e50;
         }
 
         .btn-secondary:hover {
-            background: #081829;
+            background: #1a252f;
         }
 
         .expense-list {
@@ -154,14 +154,14 @@
             padding: 20px;
             margin-bottom: 15px;
             border-radius: 8px;
-            border-left: 5px solid #E87722;
+            border-left: 5px solid #3498db;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .expense-details h3 {
-            color: #0C2340;
+            color: #2c3e50;
             margin-bottom: 5px;
         }
 
@@ -173,12 +173,12 @@
         .expense-amount {
             font-size: 1.5em;
             font-weight: bold;
-            color: #E87722;
+            color: #3498db;
         }
 
         .settlement-box {
             background: #f0f8ff;
-            border: 3px solid #0C2340;
+            border: 3px solid #2c3e50;
             border-radius: 10px;
             padding: 25px;
             margin: 20px 0;
@@ -189,12 +189,12 @@
             margin: 10px 0;
             background: white;
             border-radius: 8px;
-            border-left: 5px solid #E87722;
+            border-left: 5px solid #3498db;
             font-size: 1.1em;
         }
 
         .settlement-item strong {
-            color: #0C2340;
+            color: #2c3e50;
         }
 
         .stats-grid {
@@ -205,7 +205,7 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #0C2340 0%, #1a3a5c 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
             padding: 25px;
             border-radius: 10px;
@@ -222,7 +222,7 @@
         .stat-card .value {
             font-size: 2em;
             font-weight: bold;
-            color: #E87722;
+            color: #3498db;
         }
 
         .month-selector {
@@ -264,7 +264,7 @@
 
         .roommate-chip {
             display: inline-block;
-            background: #E87722;
+            background: #3498db;
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
@@ -313,7 +313,7 @@
         }
 
         .login-container h2 {
-            color: #0C2340;
+            color: #2c3e50;
             text-align: center;
             margin-bottom: 30px;
         }
@@ -350,11 +350,11 @@
             border-radius: 8px;
             margin-bottom: 20px;
             text-align: center;
-            border-left: 5px solid #E87722;
+            border-left: 5px solid #3498db;
         }
 
         .apartment-info strong {
-            color: #0C2340;
+            color: #2c3e50;
             font-size: 1.2em;
         }
 
@@ -382,13 +382,55 @@
     <!-- Login Screen -->
     <div id="loginScreen" class="container" style="display: none;">
         <div class="header">
-            <h1>🦅 War Eagle Bills 🦅</h1>
-            <div class="subtitle">Auburn Roommate Expense Tracker</div>
+            <h1>🎓 Roommate Bills 🎓</h1>
+            <div class="subtitle">College Roommate Expense Tracker</div>
         </div>
         <div class="login-container">
             <h2>Apartment Login</h2>
-            <p>Enter your apartment name and password to access your shared expenses</p>
+            <p>Select your school and enter your apartment information</p>
             <div class="login-form">
+                <div class="form-group">
+                    <label>Select Your School</label>
+                    <select id="schoolSelect" onchange="previewSchool()">
+                        <option value="">Choose your school...</option>
+                        <optgroup label="SEC Schools">
+                            <option value="alabama">Alabama - Roll Tide 🐘</option>
+                            <option value="arkansas">Arkansas - Woo Pig Sooie 🐗</option>
+                            <option value="auburn">Auburn - War Eagle 🦅</option>
+                            <option value="florida">Florida - Go Gators 🐊</option>
+                            <option value="georgia">Georgia - Go Dawgs 🐶</option>
+                            <option value="kentucky">Kentucky - Go Cats 🐱</option>
+                            <option value="lsu">LSU - Geaux Tigers 🐯</option>
+                            <option value="mississippi_state">Mississippi State - Hail State 🔔</option>
+                            <option value="missouri">Missouri - M-I-Z 🐯</option>
+                            <option value="oklahoma">Oklahoma - Boomer Sooner 🏇</option>
+                            <option value="ole_miss">Ole Miss - Hotty Toddy 🦈</option>
+                            <option value="south_carolina">South Carolina - Go Gamecocks 🐓</option>
+                            <option value="tennessee">Tennessee - Go Vols 🐾</option>
+                            <option value="texas">Texas - Hook 'em 🤘</option>
+                            <option value="texas_am">Texas A&M - Gig 'Em 🐕</option>
+                            <option value="vanderbilt">Vanderbilt - Anchor Down ⚓</option>
+                        </optgroup>
+                        <optgroup label="Big 12 Schools">
+                            <option value="arizona">Arizona - Bear Down 🐻</option>
+                            <option value="arizona_state">Arizona State - Go Devils 😈</option>
+                            <option value="baylor">Baylor - Sic 'em 🐻</option>
+                            <option value="byu">BYU - Go Cougs 🦁</option>
+                            <option value="cincinnati">Cincinnati - Go Bearcats 🐾</option>
+                            <option value="colorado">Colorado - Go Buffs 🦬</option>
+                            <option value="houston">Houston - Go Coogs 🐾</option>
+                            <option value="iowa_state">Iowa State - Go Cyclones 🌪️</option>
+                            <option value="kansas">Kansas - Rock Chalk 🦅</option>
+                            <option value="kansas_state">Kansas State - Go Cats 🐱</option>
+                            <option value="oklahoma_state">Oklahoma State - Go Pokes 🤠</option>
+                            <option value="tcu">TCU - Go Frogs 🐸</option>
+                            <option value="texas_tech">Texas Tech - Wreck 'Em 🔫</option>
+                            <option value="ucf">UCF - Charge On ⚔️</option>
+                            <option value="utah">Utah - Go Utes 🦅</option>
+                            <option value="west_virginia">West Virginia - Let's Go ⛰️</option>
+                        </optgroup>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label>Apartment Name</label>
                     <input type="text" id="loginApartmentName" placeholder="e.g., Eagle's Nest, 123 Main St">
@@ -399,8 +441,8 @@
                 </div>
                 <button class="btn" onclick="login()">Access Apartment</button>
             </div>
-            <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 5px solid #E87722;">
-                <h3 style="color: #0C2340; margin-bottom: 10px;">🔒 First Time Setup</h3>
+            <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 5px solid #3498db;">
+                <h3 style="color: #2c3e50; margin-bottom: 10px;">🔒 First Time Setup</h3>
                 <p style="color: #666; margin: 0;">
                     Choose any apartment name and password. This will create your apartment's data space. 
                     Share these credentials with your roommates so everyone can access the same data.
@@ -412,8 +454,8 @@
     <!-- Main App -->
     <div class="container" id="mainApp" style="display: none;">
         <div class="header">
-            <h1>🦅 War Eagle Bills 🦅</h1>
-            <div class="subtitle">Auburn Roommate Expense Tracker</div>
+            <h1>🎓 Roommate Bills 🎓</h1>
+            <div class="subtitle">College Roommate Expense Tracker</div>
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
 
@@ -430,7 +472,7 @@
 
             <!-- Roommates Tab -->
             <div id="roommates-tab" class="tab-content active">
-                <h2 style="color: #0C2340; margin-bottom: 25px;">🏠 Manage Roommates</h2>
+                <h2 style="color: #2c3e50; margin-bottom: 25px;">🏠 Manage Roommates</h2>
                 
                 <p style="margin-bottom: 20px; color: #666;">
                     Add all roommates who live in the apartment. Bills will be split equally among all roommates, 
@@ -444,8 +486,8 @@
 
                 <div id="roommatesList" class="roommate-list"></div>
 
-                <div style="margin-top: 30px; padding: 20px; background: #f0f8ff; border-radius: 10px; border-left: 5px solid #E87722;">
-                    <h3 style="color: #0C2340; margin-bottom: 10px;">💡 Quick Tip</h3>
+                <div style="margin-top: 30px; padding: 20px; background: #f0f8ff; border-radius: 10px; border-left: 5px solid #3498db;">
+                    <h3 style="color: #2c3e50; margin-bottom: 10px;">💡 Quick Tip</h3>
                     <p style="color: #666;">
                         Add all your roommates here first. When you add expenses, just select who paid from the dropdown. 
                         At month's end, the settlement will divide the total equally among ALL roommates listed here.
@@ -455,7 +497,7 @@
 
             <!-- Add Expense Tab -->
             <div id="add-tab" class="tab-content">
-                <h2 style="color: #0C2340; margin-bottom: 25px;">Add New Expense</h2>
+                <h2 style="color: #2c3e50; margin-bottom: 25px;">Add New Expense</h2>
                 
                 <div class="form-group">
                     <label>Roommate Who Paid</label>
@@ -504,7 +546,7 @@
 
             <!-- Settle Up Tab -->
             <div id="settle-tab" class="tab-content">
-                <h2 style="color: #0C2340; margin-bottom: 25px;">Settlement Calculator</h2>
+                <h2 style="color: #2c3e50; margin-bottom: 25px;">Settlement Calculator</h2>
                 
                 <div class="month-selector">
                     <select id="settleMonth">
@@ -530,7 +572,7 @@
 
             <!-- History Tab -->
             <div id="history-tab" class="tab-content">
-                <h2 style="color: #0C2340; margin-bottom: 25px;">Annual Analytics</h2>
+                <h2 style="color: #2c3e50; margin-bottom: 25px;">Annual Analytics</h2>
                 
                 <div class="form-group">
                     <label>Select Year</label>
@@ -545,6 +587,269 @@
     </div>
 
     <script>
+        // School configurations with authentic branding
+        const schools = {
+            // SEC Schools
+            auburn: {
+                name: "Auburn University",
+                shortName: "Auburn",
+                primaryColor: "#0C2340",
+                secondaryColor: "#E87722",
+                mascot: "🦅",
+                cheer: "War Eagle"
+            },
+            alabama: {
+                name: "University of Alabama",
+                shortName: "Alabama",
+                primaryColor: "#9E1B32",
+                secondaryColor: "#828A8F",
+                mascot: "🐘",
+                cheer: "Roll Tide"
+            },
+            georgia: {
+                name: "University of Georgia",
+                shortName: "Georgia",
+                primaryColor: "#BA0C2F",
+                secondaryColor: "#000000",
+                mascot: "🐶",
+                cheer: "Go Dawgs"
+            },
+            florida: {
+                name: "University of Florida",
+                shortName: "Florida",
+                primaryColor: "#0021A5",
+                secondaryColor: "#FA4616",
+                mascot: "🐊",
+                cheer: "Go Gators"
+            },
+            lsu: {
+                name: "Louisiana State University",
+                shortName: "LSU",
+                primaryColor: "#461D7C",
+                secondaryColor: "#FDD023",
+                mascot: "🐯",
+                cheer: "Geaux Tigers"
+            },
+            tennessee: {
+                name: "University of Tennessee",
+                shortName: "Tennessee",
+                primaryColor: "#FF8200",
+                secondaryColor: "#FFFFFF",
+                mascot: "🐾",
+                cheer: "Go Vols"
+            },
+            texas_am: {
+                name: "Texas A&M University",
+                shortName: "Texas A&M",
+                primaryColor: "#500000",
+                secondaryColor: "#FFFFFF",
+                mascot: "🐕",
+                cheer: "Gig 'Em"
+            },
+            missouri: {
+                name: "University of Missouri",
+                shortName: "Missouri",
+                primaryColor: "#F1B82D",
+                secondaryColor: "#000000",
+                mascot: "🐯",
+                cheer: "M-I-Z"
+            },
+            arkansas: {
+                name: "University of Arkansas",
+                shortName: "Arkansas",
+                primaryColor: "#9D2235",
+                secondaryColor: "#FFFFFF",
+                mascot: "🐗",
+                cheer: "Woo Pig Sooie"
+            },
+            kentucky: {
+                name: "University of Kentucky",
+                shortName: "Kentucky",
+                primaryColor: "#0033A0",
+                secondaryColor: "#FFFFFF",
+                mascot: "🐱",
+                cheer: "Go Cats"
+            },
+            south_carolina: {
+                name: "University of South Carolina",
+                shortName: "South Carolina",
+                primaryColor: "#73000A",
+                secondaryColor: "#000000",
+                mascot: "🐓",
+                cheer: "Go Gamecocks"
+            },
+            vanderbilt: {
+                name: "Vanderbilt University",
+                shortName: "Vanderbilt",
+                primaryColor: "#866D4B",
+                secondaryColor: "#000000",
+                mascot: "⚓",
+                cheer: "Anchor Down"
+            },
+            ole_miss: {
+                name: "University of Mississippi",
+                shortName: "Ole Miss",
+                primaryColor: "#CE1126",
+                secondaryColor: "#14213D",
+                mascot: "🦈",
+                cheer: "Hotty Toddy"
+            },
+            mississippi_state: {
+                name: "Mississippi State University",
+                shortName: "Mississippi State",
+                primaryColor: "#5D1725",
+                secondaryColor: "#FFFFFF",
+                mascot: "🔔",
+                cheer: "Hail State"
+            },
+            oklahoma: {
+                name: "University of Oklahoma",
+                shortName: "Oklahoma",
+                primaryColor: "#841617",
+                secondaryColor: "#FFF",
+                mascot: "🏇",
+                cheer: "Boomer Sooner"
+            },
+            texas: {
+                name: "University of Texas",
+                shortName: "Texas",
+                primaryColor: "#BF5700",
+                secondaryColor: "#FFFFFF",
+                mascot: "🤘",
+                cheer: "Hook 'em"
+            },
+            // Big 12 Schools
+            kansas: {
+                name: "University of Kansas",
+                shortName: "Kansas",
+                primaryColor: "#0051BA",
+                secondaryColor: "#E8000D",
+                mascot: "🦅",
+                cheer: "Rock Chalk"
+            },
+            kansas_state: {
+                name: "Kansas State University",
+                shortName: "Kansas State",
+                primaryColor: "#512888",
+                secondaryColor: "#FFFFFF",
+                mascot: "🐱",
+                cheer: "Go Cats"
+            },
+            baylor: {
+                name: "Baylor University",
+                shortName: "Baylor",
+                primaryColor: "#003015",
+                secondaryColor: "#FFB81C",
+                mascot: "🐻",
+                cheer: "Sic 'em"
+            },
+            tcu: {
+                name: "Texas Christian University",
+                shortName: "TCU",
+                primaryColor: "#4D1979",
+                secondaryColor: "#FFFFFF",
+                mascot: "🐸",
+                cheer: "Go Frogs"
+            },
+            texas_tech: {
+                name: "Texas Tech University",
+                shortName: "Texas Tech",
+                primaryColor: "#CC0000",
+                secondaryColor: "#000000",
+                mascot: "🔫",
+                cheer: "Wreck 'Em"
+            },
+            oklahoma_state: {
+                name: "Oklahoma State University",
+                shortName: "Oklahoma State",
+                primaryColor: "#FF7300",
+                secondaryColor: "#000000",
+                mascot: "🤠",
+                cheer: "Go Pokes"
+            },
+            iowa_state: {
+                name: "Iowa State University",
+                shortName: "Iowa State",
+                primaryColor: "#C8102E",
+                secondaryColor: "#F1BE48",
+                mascot: "🌪️",
+                cheer: "Go Cyclones"
+            },
+            west_virginia: {
+                name: "West Virginia University",
+                shortName: "West Virginia",
+                primaryColor: "#002855",
+                secondaryColor: "#EAAA00",
+                mascot: "⛰️",
+                cheer: "Let's Go"
+            },
+            cincinnati: {
+                name: "University of Cincinnati",
+                shortName: "Cincinnati",
+                primaryColor: "#E00122",
+                secondaryColor: "#000000",
+                mascot: "🐾",
+                cheer: "Go Bearcats"
+            },
+            ucf: {
+                name: "University of Central Florida",
+                shortName: "UCF",
+                primaryColor: "#000000",
+                secondaryColor: "#FFC904",
+                mascot: "⚔️",
+                cheer: "Charge On"
+            },
+            byu: {
+                name: "Brigham Young University",
+                shortName: "BYU",
+                primaryColor: "#002E5D",
+                secondaryColor: "#FFFFFF",
+                mascot: "🦁",
+                cheer: "Go Cougs"
+            },
+            houston: {
+                name: "University of Houston",
+                shortName: "Houston",
+                primaryColor: "#C8102E",
+                secondaryColor: "#FFFFFF",
+                mascot: "🐾",
+                cheer: "Go Coogs"
+            },
+            arizona: {
+                name: "University of Arizona",
+                shortName: "Arizona",
+                primaryColor: "#CC0033",
+                secondaryColor: "#003366",
+                mascot: "🐻",
+                cheer: "Bear Down"
+            },
+            arizona_state: {
+                name: "Arizona State University",
+                shortName: "Arizona State",
+                primaryColor: "#8C1D40",
+                secondaryColor: "#FFC627",
+                mascot: "😈",
+                cheer: "Go Devils"
+            },
+            colorado: {
+                name: "University of Colorado",
+                shortName: "Colorado",
+                primaryColor: "#CFB87C",
+                secondaryColor: "#000000",
+                mascot: "🦬",
+                cheer: "Go Buffs"
+            },
+            utah: {
+                name: "University of Utah",
+                shortName: "Utah",
+                primaryColor: "#CC0000",
+                secondaryColor: "#FFFFFF",
+                mascot: "🦅",
+                cheer: "Go Utes"
+            }
+        };
+
+        let currentSchool = null;
         // Current apartment session
         let currentApartment = null;
 
@@ -566,10 +871,141 @@
             return 'apt_' + Math.abs(hash).toString(36);
         }
 
+        // Preview school colors on login screen
+        function previewSchool() {
+            const schoolId = document.getElementById('schoolSelect').value;
+            if (!schoolId) return;
+            
+            const school = schools[schoolId];
+            const loginContainer = document.querySelector('.login-container');
+            const btn = loginContainer.querySelector('.btn');
+            
+            // Update button colors
+            btn.style.background = school.secondaryColor;
+            btn.style.color = getContrastColor(school.secondaryColor);
+        }
+
+        // Get contrasting text color for background
+        function getContrastColor(hexcolor) {
+            // Convert hex to RGB
+            const r = parseInt(hexcolor.slice(1, 3), 16);
+            const g = parseInt(hexcolor.slice(3, 5), 16);
+            const b = parseInt(hexcolor.slice(5, 7), 16);
+            
+            // Calculate luminance
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            
+            return luminance > 0.5 ? '#000000' : '#FFFFFF';
+        }
+
+        // Apply school theme to entire app
+        function applySchoolTheme(schoolId) {
+            const school = schools[schoolId];
+            currentSchool = school;
+            
+            const root = document.documentElement;
+            
+            // Create dynamic style element
+            let styleEl = document.getElementById('dynamic-theme');
+            if (!styleEl) {
+                styleEl = document.createElement('style');
+                styleEl.id = 'dynamic-theme';
+                document.head.appendChild(styleEl);
+            }
+            
+            const primaryContrast = getContrastColor(school.primaryColor);
+            const secondaryContrast = getContrastColor(school.secondaryColor);
+            
+            styleEl.textContent = `
+                body {
+                    background: linear-gradient(135deg, ${school.primaryColor} 0%, ${school.secondaryColor} 100%);
+                }
+                .header {
+                    background: ${school.primaryColor};
+                    color: ${primaryContrast};
+                }
+                .header .subtitle {
+                    color: ${school.secondaryColor};
+                }
+                .tab.active {
+                    color: ${school.secondaryColor};
+                    border-bottom-color: ${school.secondaryColor};
+                }
+                .tabs {
+                    border-bottom-color: ${school.secondaryColor};
+                }
+                .btn {
+                    background: ${school.secondaryColor};
+                    color: ${secondaryContrast};
+                }
+                .btn:hover {
+                    background: ${school.secondaryColor}dd;
+                }
+                .btn-secondary {
+                    background: ${school.primaryColor};
+                    color: ${primaryContrast};
+                }
+                .btn-secondary:hover {
+                    background: ${school.primaryColor}dd;
+                }
+                .expense-item {
+                    border-left-color: ${school.secondaryColor};
+                }
+                .expense-amount {
+                    color: ${school.secondaryColor};
+                }
+                .settlement-box {
+                    border-color: ${school.primaryColor};
+                }
+                .settlement-item {
+                    border-left-color: ${school.secondaryColor};
+                }
+                .settlement-item strong {
+                    color: ${school.primaryColor};
+                }
+                .stat-card {
+                    background: linear-gradient(135deg, ${school.primaryColor} 0%, ${school.primaryColor}cc 100%);
+                }
+                .stat-card .value {
+                    color: ${school.secondaryColor};
+                }
+                .roommate-chip {
+                    background: ${school.secondaryColor};
+                    color: ${secondaryContrast};
+                }
+                .apartment-info {
+                    border-left-color: ${school.secondaryColor};
+                }
+                h2, h3, h4, label, .tab {
+                    color: ${school.primaryColor} !important;
+                }
+                input:focus, select:focus, textarea:focus {
+                    border-color: ${school.secondaryColor};
+                }
+            `;
+            
+            // Update header text with school-specific branding
+            const headerTitle = document.querySelector('#mainApp .header h1');
+            const headerSubtitle = document.querySelector('#mainApp .header .subtitle');
+            
+            if (headerTitle) {
+                headerTitle.innerHTML = `${school.mascot} ${school.cheer} Bills ${school.mascot}`;
+            }
+            if (headerSubtitle) {
+                headerSubtitle.textContent = `${school.name} Roommate Expense Tracker`;
+            }
+        }
+
         // Login function
         function login() {
+            const schoolId = document.getElementById('schoolSelect').value;
             const apartmentName = document.getElementById('loginApartmentName').value.trim();
             const password = document.getElementById('loginPassword').value;
+
+            if (!schoolId) {
+                alert('Please select your school');
+                return;
+            }
 
             if (!apartmentName || !password) {
                 alert('Please enter both apartment name and password');
@@ -579,11 +1015,15 @@
             // Create apartment session
             currentApartment = {
                 name: apartmentName,
-                id: hashApartmentId(apartmentName, password)
+                id: hashApartmentId(apartmentName, password),
+                school: schoolId
             };
 
             // Store session
             sessionStorage.setItem('currentApartment', JSON.stringify(currentApartment));
+
+            // Apply school theme
+            applySchoolTheme(schoolId);
 
             // Show main app
             document.getElementById('loginScreen').style.display = 'none';
@@ -600,10 +1040,16 @@
             
             sessionStorage.removeItem('currentApartment');
             currentApartment = null;
+            currentSchool = null;
             
             // Clear form
+            document.getElementById('schoolSelect').value = '';
             document.getElementById('loginApartmentName').value = '';
             document.getElementById('loginPassword').value = '';
+            
+            // Remove dynamic theme
+            const styleEl = document.getElementById('dynamic-theme');
+            if (styleEl) styleEl.remove();
             
             // Show login screen
             document.getElementById('mainApp').style.display = 'none';
@@ -615,6 +1061,7 @@
             const session = sessionStorage.getItem('currentApartment');
             if (session) {
                 currentApartment = JSON.parse(session);
+                applySchoolTheme(currentApartment.school);
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('mainApp').style.display = 'block';
                 document.getElementById('currentApartmentName').textContent = currentApartment.name;
@@ -660,7 +1107,7 @@
             document.getElementById('newRoommateName').value = '';
             loadRoommates();
             updateRoommateDropdown();
-            alert('Roommate added! War Eagle! 🦅');
+            alert('Roommate added successfully!');
         }
 
         // Remove roommate
@@ -683,7 +1130,7 @@
                 return;
             }
 
-            container.innerHTML = '<h3 style="color: #0C2340; margin-bottom: 15px;">Current Roommates (' + roommates.length + ')</h3>' +
+            container.innerHTML = '<h3 style="color: #2c3e50; margin-bottom: 15px;">Current Roommates (' + roommates.length + ')</h3>' +
                 roommates.map(name => `
                     <div class="roommate-chip">
                         ${name}
@@ -773,7 +1220,7 @@
             document.getElementById('expenseDescription').value = '';
             document.getElementById('expenseAmount').value = '';
 
-            alert('Expense added successfully! War Eagle! 🦅');
+            alert('Expense added successfully!');
             loadCurrentExpenses();
         }
 
@@ -790,7 +1237,7 @@
                 return;
             }
 
-            container.innerHTML = '<h3 style="color: #0C2340; margin-top: 30px;">Current Month Expenses</h3>' +
+            container.innerHTML = '<h3 style="color: #2c3e50; margin-top: 30px;">Current Month Expenses</h3>' +
                 expenses.map(exp => `
                     <div class="expense-item">
                         <div class="expense-details">
@@ -897,11 +1344,11 @@
 
             // Display results
             let html = '<div class="settlement-box">';
-            html += '<h3 style="color: #0C2340; margin-bottom: 20px;">💰 Settlement Summary</h3>';
-            html += `<p style="font-size: 1.1em; margin-bottom: 10px;">Total Expenses: <strong style="color: #E87722;">$${totalExpenses.toFixed(2)}</strong></p>`;
-            html += `<p style="font-size: 1.1em; margin-bottom: 10px;">Number of Roommates: <strong style="color: #E87722;">${numPeople}</strong></p>`;
-            html += `<p style="font-size: 1.1em; margin-bottom: 20px;">Per Person Share: <strong style="color: #E87722;">$${perPersonShare.toFixed(2)}</strong></p>`;
-            html += '<h4 style="color: #0C2340; margin: 20px 0;">Required Payments:</h4>';
+            html += '<h3 style="color: #2c3e50; margin-bottom: 20px;">💰 Settlement Summary</h3>';
+            html += `<p style="font-size: 1.1em; margin-bottom: 10px;">Total Expenses: <strong style="color: #3498db;">$${totalExpenses.toFixed(2)}</strong></p>`;
+            html += `<p style="font-size: 1.1em; margin-bottom: 10px;">Number of Roommates: <strong style="color: #3498db;">${numPeople}</strong></p>`;
+            html += `<p style="font-size: 1.1em; margin-bottom: 20px;">Per Person Share: <strong style="color: #3498db;">$${perPersonShare.toFixed(2)}</strong></p>`;
+            html += '<h4 style="color: #2c3e50; margin: 20px 0;">Required Payments:</h4>';
 
             if (transactions.length === 0) {
                 html += '<p style="text-align: center; color: #28a745; font-weight: bold; font-size: 1.2em;">✓ All settled up! Everyone is even.</p>';
@@ -910,7 +1357,7 @@
                     html += `
                         <div class="settlement-item">
                             <strong>${t.from}</strong> pays <strong>${t.to}</strong>: 
-                            <span style="color: #E87722; font-weight: bold; font-size: 1.2em;">$${t.amount.toFixed(2)}</span>
+                            <span style="color: #3498db; font-weight: bold; font-size: 1.2em;">$${t.amount.toFixed(2)}</span>
                         </div>
                     `;
                 });
@@ -919,7 +1366,7 @@
             html += '</div>';
 
             // Individual breakdown - show ALL roommates
-            html += '<h3 style="color: #0C2340; margin: 30px 0 20px 0;">Individual Breakdown</h3>';
+            html += '<h3 style="color: #2c3e50; margin: 30px 0 20px 0;">Individual Breakdown</h3>';
             allRoommates.forEach(person => {
                 const paid = balances[person];
                 const net = netBalances[person];
@@ -997,7 +1444,7 @@
                 monthlyData[month] = { total, count: monthExpenses.length };
             }
 
-            let breakdownHtml = '<h3 style="color: #0C2340; margin: 30px 0 20px 0;">Monthly Breakdown</h3>';
+            let breakdownHtml = '<h3 style="color: #2c3e50; margin: 30px 0 20px 0;">Monthly Breakdown</h3>';
             Object.entries(monthlyData).forEach(([month, data]) => {
                 if (data.count > 0) {
                     breakdownHtml += `
